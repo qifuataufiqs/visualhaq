@@ -17,22 +17,22 @@ public class CorehaqAdapter extends RecyclerView.Adapter<CorehaqAdapter.Category
 
     private Context context;
 
-    public ArrayList<CoreHaq> getListCorehaq() {
-        return listCorehaq;
+    public ArrayList<CoreVisual> getCorevisual() {
+        return listCorevisual;
     }
 
-    public void setListCorehaq(ArrayList<CoreVisual> listCorehaq) {
-        this.listCorehaq = listCorehaq;
+    public void setListCoreVisual(ArrayList<CoreVisual> listCorevisual) {
+        this.listCorevisual = listCorevisual;
     }
 
     public CorehaqAdapter(Context context) {
         this.context = context;
     }
-    private ArrayList<CoreHaq>listCorehaq;
+    private ArrayList<CoreVisual>listCorevisual;
 
     @NonNull
     @Override
-    public CorehaqAdapter.CategoryViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
+    public CorehaqAdapter.CategoryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemRow = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_row_corehaq, parent, false);
         return new CategoryViewHolder(itemRow);
@@ -40,11 +40,11 @@ public class CorehaqAdapter extends RecyclerView.Adapter<CorehaqAdapter.Category
 
     @Override
     public void onBindViewHolder(@NonNull CategoryViewHolder holder, int position) {
-        holder.setNama.setText(getListCorehaq().get(position).getNama());
-        holder.setposisi.setText(getListCorehaq().get(position).getNama);
+        holder.tvNama.setText(getCorevisual().get(position).getNama());
+        holder.tvPosisi.setText(getCorevisual().get(position).getPosisi());
 
         Glide.with(context)
-                .load(getListCorehaq().get(position).getFoto())
+                .load(getCorevisual().get(position).getFoto())
                 .override(55, 55)
                 .crossFade()
                 .into(holder.imgFoto);
@@ -52,7 +52,7 @@ public class CorehaqAdapter extends RecyclerView.Adapter<CorehaqAdapter.Category
 
     @Override
     public int getItemCount() {
-        return getListCorehaq().size();
+        return getCorevisual().size();
     }
 
     class CategoryViewHolder extends RecyclerView.ViewHolder {

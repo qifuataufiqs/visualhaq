@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private void showRecyclerList(){
         rvCategory.setLayoutManager(new LinearLayoutManager(this));
         CorehaqAdapter listCoreAdapter = new CorehaqAdapter(this);
-        listCoreAdapter.setListCorehaq(list);
+        listCoreAdapter.setListCoreVisual(list);
         rvCategory.setAdapter((listCoreAdapter));
     }
 }
