@@ -13,6 +13,13 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView rvCategory;
     private ArrayList<CoreVisual>list;
 
+    private void showRecyclerCardView() {
+        rvCategory.setLayoutManager(new LinearLayoutManager(this));
+        CardViewCorehaqAdapter cardViewCorehaqAdapter = new CardViewCorehaqAdapter(this);
+        cardViewCorehaqAdapter.setListCoreVisual(list);
+        rvCategory.setAdapter(cardViewCorehaqAdapter);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,11 +33,23 @@ public class MainActivity extends AppCompatActivity {
 
         showRecyclerList();
     }
+
     private void showRecyclerList(){
         rvCategory.setLayoutManager(new LinearLayoutManager(this));
         CorehaqAdapter listCoreAdapter = new CorehaqAdapter(this);
         listCoreAdapter.setListCoreVisual(list);
-        rvCategory.setAdapter((listCoreAdapter));
+        rvCategory.setAdapter(listCoreAdapter);
+    }
+
+    private void showRecyclerGrid(){
+        rvCategory.setLayoutManager(new LinearLayoutManager(this));
+        CardViewCorehaqAdapter cardViewCorehaqAdapter = new CardViewCorehaqAdapter(this);
+        cardViewCorehaqAdapter.setListCoreVisual(list);
+        rvCategory.setAdapter(cardViewCorehaqAdapter);
+    }
+
+    private void setActionBarTitle(String title) {
+        getSupportActionBar().setTitle(title);
     }
 
     @Override
@@ -43,12 +62,19 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
+        String title = null;
         switch (item.getItemId()) {
             case R.id.action_list:
+                showRecyclerList();
+                title = "Mode List";
                 break;
             case R.id.action_grid:
+                showRecyclerGrid();
+                title = "Mode Grid";
                 break;
             case R.id.action_cardview:
+                showRecyclerCardView();
+                title = "Mode CardView";
                 break;
         }
         return super.onOptionsItemSelected(item);
