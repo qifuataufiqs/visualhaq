@@ -12,15 +12,15 @@ public class CoreHaq {
     };
 
     public static ArrayList<CoreVisual> getListData() {
-        CoreVisual corehaq = null;
+        CoreVisual corelvisual = null;
         ArrayList<CoreVisual> list = new ArrayList<>();
         for (int i = 0; i < data.length; i++) {
-            corehaq = new CoreVisual();
-            corehaq.setNama(data[i][0]);
-            corehaq.setPosisi(data[i][1]);
-            corehaq.setFoto(data[i][2]);
+            corelvisual = new CoreVisual();
+            corelvisual.setNama(data[i][0]);
+            corelvisual.setPosisi(data[i][1]);
+            corelvisual.setFoto(data[i][2]);
 
-            list.add(corehaq);
+            list.add(corelvisual);
         }
         return list;
     }

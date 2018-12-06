@@ -25,10 +25,11 @@ public class CorehaqAdapter extends RecyclerView.Adapter<CorehaqAdapter.Category
         this.listCorevisual = listCorevisual;
     }
 
+    private ArrayList<CoreVisual>listCorevisual;
+
     public CorehaqAdapter(Context context) {
         this.context = context;
     }
-    private ArrayList<CoreVisual>listCorevisual;
 
     @NonNull
     @Override
@@ -63,9 +64,9 @@ public class CorehaqAdapter extends RecyclerView.Adapter<CorehaqAdapter.Category
         public CategoryViewHolder(View itemView) {
             super(itemView);
 
-            tvNama = (TextView)itemView.findViewById(R.id._tv_item_nama);
-            tvPosisi = (TextView)itemView.findViewById(R.id._tv_item_posisi);
-            imgFoto = (ImageView) itemView.findViewById(R.id._tv_item_foto);
+            tvNama = (TextView)itemView.findViewById(R.id.tv_item_nama);
+            tvPosisi = (TextView)itemView.findViewById(R.id.tv_item_posisi);
+            imgFoto = (ImageView) itemView.findViewById(R.id.img_item_foto);
         }
     }
 }
